@@ -21,7 +21,7 @@ if __name__ == "__main__":
 
         message = input('Сообщение для сервера: ')
         encrypted_message = dh_client.encrypt(message, shared_key)
-        
+        s.sendall(encrypted_message.encode())
 
         encrypted_response = s.recv(1024).decode()
         print(f'Зашифрованное сообщение от сервера: {encrypted_message} ')
